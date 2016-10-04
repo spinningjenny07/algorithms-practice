@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+//6. Write a function which takes in two arrays and determines if they contain the same number of the same values.
+// [], [] -> true
+// [2, 3, 4], [1, 2, 3] -> false
+// ["a", "c", "b"], ["a", "b", "c"] -> true
+// [1, 1, 1], [1, 1, 1, 1] -> false
+
+	function sameNumValue (arr1, arr2) {
+		var typeOf1;
+		var typeOf2;
+
+		for (var i = 0; i < arr1.length; i++) {
+			typeOf1 = typeof arr1[i];
+		}
+
+		for (var j = 0; j < arr2.length; j++) {
+			typeOf2 = typeof arr2[j];
+		}
+	
+
+		if (typeOf1 === typeOf2 && arr1.length === arr2.length) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	//a possible way to sort if they're the same: 
+	//var arr = [1, 2, 3];
+	// arr.sort(function(a, b) {
+	// 	return a - b;
+	// });
+
+
+	console.log(sameNumValue([], []));
+	console.log(sameNumValue([2, 3, 4], [1, 2, 3]));
+	console.log(sameNumValue(["a", "c", "b"], ["a", "b", "c"]));
+	console.log(sameNumValue([1, 1, 1], [1, 1, 1, 1]));
+	
+
+	</script>
+
+</body>
+</html>
