@@ -14,8 +14,28 @@
 //[1,4,4,4,2,2,4,4,4] -> [1,4,2]
 
 	function noDuplicates (arr) {
-		
-	}
+	// debugger;
+	arr.sort();
+	//look through the array
+	
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i] === arr[i + 1] ) {
+			arr.splice(arr[i+1], 1);
+			for (var j = 0; j < arr.length; j++) {
+				if (arr[j] === arr[j + 1] ) {
+					arr.splice(arr[j+1], 1);
+				} 
+			}
+		}
+	// } for (var j = 0; j < arr.length; j++) {
+	// 	if (arr[j] === arr[j + 1] ) {
+	// 		arr.splice(arr[j+1], 1);
+	// 	} 
+	} return arr;
+}
+
+	console.log(noDuplicates([1,1,2,3,1,2,3]));
+	console.log(noDuplicates([1,4,4,4,2,2,4,4,4]));
 	</script>
 
 </body>
