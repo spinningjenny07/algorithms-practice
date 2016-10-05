@@ -13,11 +13,21 @@
 // [1,2,3,4,5] -> 6
 // [3,4,5] -> 1
 	function missingNum (arr) {
-		var arrNum = [];
+		var trackNum = [];
+		var missing = 1;
+		var maxNum = arr[0];
+
+		debugger;
 		for (var i = 0; i < arr.length; i++) {
-			if(arr[i] + arr[i + 1] !== arr[i + 2]) {
-				arrNum.push(arr[i + 1] + 1);
-				return arrNum;
+			if (trackNum[arr[i]] === undefined) {
+				trackNum[arr[i]] = 0;
+			}
+			 trackNum[arr[i]] = trackNum[arr[i]] + 1;
+		}
+		for (var j = 0; j < trackNum.length; j++) {
+			if (trackNum[j] < 1) {
+				missing = trackNum[j];
+				maxNum = j;
 			}
 		}
 	}

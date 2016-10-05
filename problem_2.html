@@ -10,51 +10,32 @@
 // [0, 0, 0, 10] -> 0
 // [1] -> 1
 
-	// function findMode(arr) {
-	// 	var arrMode = [];
-	// 	for (var i = 0; i < arr.length; i++) {
-	// 		if (arr[i] === arr[i + 1]) {
-	// 			arrMode.push(arr[i]);
-	// 			return arrMode;
-
-	// 		}
-	// 	} 
-	// }
-
-	function mode(arr) {
-	"use strict";
-	var counts = [];
-	var i, j;
-	var maxcount = 1;
-	var maxnum = arr[0];
+	function findMode (arr) {
 	
-	//count the numbers in arr, into counts
-	for (i = 0; i < arr.length; i++) {
-debugger;
-		if (counts[arr[i]] === undefined) {
-			counts[arr[i]] = 0;
+	var countTrack = [];
+	var maxCount = 1;
+	var maxNum = arr[0];
+
+		for (var i = 0; i < arr.length; i++) {
+			if (countTrack[arr[i]] === undefined) {
+				countTrack[arr[i]] = 0;
+			}
+			 countTrack[arr[i]] = countTrack[arr[i]] + 1;
 		}
-		counts[arr[i]] = counts[arr[i]] + 1; 
-
+		for (var j = 0; j < countTrack.length; j++) {
+			if (countTrack[j] > maxCount) {
+				maxCount = countTrack[j];
+				maxNum = j;
+			}
+		} 
+		return maxNum;
 	}
-	
-	//find the max number in the counts array
-	for (j = 0; j < counts.length; j++) {
-		if (counts[j] > maxcount) {
-			maxcount = counts[j];
-			maxnum = j;
-		}
-	}
-	return maxnum;
-}
 
-console.log(mode([2, 4, 4, 4, 6, 6, 1]) == 4);
-console.log(mode([0, 0, 0, 10]) == 0);
-console.log(mode([1]) == 1);
 
-	console.log(findMode([2, 4, 4, 4, 6, 6, 1]));
-	console.log(findMode([0, 0, 0, 10]));
-	console.log(findMode([1]));
+console.log(findMode([2, 4, 4, 6, 6, 6, 1]));
+console.log(findMode([0, 0, 0, 10]));
+console.log(findMode([1]));
+
 	
 	</script>
 
