@@ -10,18 +10,15 @@
 
 		function leapYear (year) {
 
-			if(year % 4 === 0) {
-
-			} 
-
-			if (year % 100 === 0 ){
-				console.log(true);
+			if (year % 4 !== 0) {
+				console.log("false");
+			} else if (year % 100 === 0 && year % 400 !== 0) {
+				console.log("false");
+			} else {
+				console.log("true");
 			}
-
-			if (year % 400 === 0) {
-				console.log(false);
-			} 
 		}
+
 		leapYear(2000);
 		leapYear(1900);
 		leapYear(2016);

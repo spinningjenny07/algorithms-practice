@@ -5,6 +5,7 @@
 </head>
 <body>
 	<script>
+	/* jslint esversion:6 */
 //6. Write a function which takes in two arrays and determines if they contain the same number of the same values.
 // [], [] -> true
 // [2, 3, 4], [1, 2, 3] -> false
@@ -12,24 +13,21 @@
 // [1, 1, 1], [1, 1, 1, 1] -> false
 
 	function sameNumValue (arr1, arr2) {
-		var typeOf1;
-		var typeOf2;
-
-		for (var i = 0; i < arr1.length; i++) {
-			typeOf1 = typeof arr1[i];
-		}
-
-		for (var j = 0; j < arr2.length; j++) {
-			typeOf2 = typeof arr2[j];
-		}
-	
-
-		if (typeOf1 === typeOf2 && arr1.length === arr2.length) {
-			return true;
+		arr1.sort();
+		arr2.sort();
+		
+		if (arr1.length === arr2.length) {
+			for (var i of arr1) {
+				for (var j of arr2) {
+					if (arr1[i] !== arr2[j]) {
+						return false;
+					} 
+				}	
+			} 
 		} else {
 			return false;
-		}
-
+		} 
+		return true;
 	}
 
 	//a possible way to sort if they're the same: 
